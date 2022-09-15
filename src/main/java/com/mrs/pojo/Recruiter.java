@@ -1,4 +1,4 @@
-package com.mrs;
+package com.mrs.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
