@@ -1,0 +1,11 @@
+@charset "ISO-8859-1";
+body{
+	
+	background-image: url("../images/1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h2.heading{
+	color:red;
+	
+}
