@@ -15,5 +15,6 @@
 
 <input type="button" value="Student"  onclick="window.location='stdlgn.jsp'" />
 <input type="submit" value="Company" onclick="window.location='cmplgn.jsp'"/>
+<h2>ello</h2>
 </body>
 </html>
