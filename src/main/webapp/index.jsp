@@ -6,14 +6,14 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
         <title>IRP RC</title>
     </head>
     <body>
         <fieldset>
             <div class="navbar">
                 <a href="./index.html">Home</a>
-                <a href="./student-login.html">Student</a>
+                <a href="stdreg.jsp">Student</a>
                 <a href="./recruiter.html">Recruiter</a>
                 <a href="./placement-officer.html">Placement Officer</a>
                 <a href="./about-us.html">About Us</a>

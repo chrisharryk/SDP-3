@@ -8,5 +8,9 @@
 </head>
 <body>
 <h1>${res}</h1>
+<br>
+
+<br>
+<a href="stdlgn.jsp">Login</a>
 </body>
 </html>

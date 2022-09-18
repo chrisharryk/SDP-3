@@ -8,10 +8,10 @@
 </head>
 <body>
 <h2>hello</h2>
-<form action="slgn">
+<form action="studentlogincheck">
 
-Username<input type="text" placeholder="ID" name="sid"/></br>
-Password<input type ="password" placeholder="***" name="spass"/>
+<h1>ID<input type="text" placeholder="ID" name="userID"/></br></h1>
+Password<input type ="password" placeholder="***" name="password"/>
 <input type="submit" value="Login">
 <h2></h2>
 
