@@ -50,36 +50,21 @@ public class Controller1
 	{
 		ModelAndView m=new ModelAndView();
 		List<Student> l=repo.findAll();
-		for(Student k:l)
+		for(int i=0;i<repo.count();i++)
 		{
-			String a=k.getUserID();
-			String b=s.getUserID();
-			String c=k.getPassword();
-			String d=s.getPassword();
-			if(a==b)
+			Student s1 = l.get(i);
+			if((s1.getUserID().equals(s.getUserID())&&(s1.getPassword().equals(s.getPassword()))))
 			{
-	             if(c==d)
-				{
-					
-					String x="LOGIN SUCESSFUL WITH ID";
-					
-					m.addObject("res",x);
-				}
-	             else
-	             {
-	            	 m.addObject("res","LOGIN FAIL Wrong password");
-	         		
-	         		m.setViewName("result.jsp");
-	         		return m;
-	             }
+				m.setViewName("index.jsp");
+				return m;
 			}
-			
 		}
-		//m.addObject(re);
-		m.addObject("res","LOGIN FAIL");
-		
-		m.setViewName("result.jsp");
+		m.setViewName("stdlgn.jsp");
 		return m;
+			
+			
+		
+		
 	}
 
 }
