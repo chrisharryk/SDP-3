@@ -7,11 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>hello</h2>
-<form action="recramalogin">
-Username<input type="text" placeholder="username" name="username"/></br>
-Password<input type ="password" placeholder="password" name="pass"/>
-<input type="submit" value="Login">
+<form action="viewallstudents">
+<input type="submit">
 </form>
+
 </body>
 </html>

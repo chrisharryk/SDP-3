@@ -13,18 +13,15 @@ h1 {
 }
 </style>
 <meta charset="ISO-8859-1">
-<title>veiw students</title>
+<title>view students</title>
 </head>
 <body>
-<h1 >Veiw Students</h1>
-<%@ page import="com.mrs.code.Main" %>
+<h1 >View Students</h1>
+<%@ page import="com.mrs.services.Main" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.mrs.pojo.Student" %>
 <%
-Main m=new Main();
-
-List<Student> l=(List)m.getAllstudents();
-
+List<Student> l=(List)request.getAttribute("list");
 %>
 <table>
   <tr>
@@ -35,11 +32,9 @@ List<Student> l=(List)m.getAllstudents();
 
 <% for(Student p: l){ %>
   <tr>
-    <td><%=p.getCollegeID() %></td>
+    <td><%=p.getUserID() %></td>
   </tr>
 <%  } %>
 </table>
-
-
 </body>
 </html>
