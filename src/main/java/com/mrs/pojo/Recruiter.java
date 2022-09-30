@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="recruiter")
+@Table(name="rect")
 public class Recruiter {
 	@Id
 	@Column(name="username")

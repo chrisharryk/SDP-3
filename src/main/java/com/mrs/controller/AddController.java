@@ -21,64 +21,76 @@ import com.mrs.pojo.Recruiter;
 
 public class AddController {
 
-  @Autowired
-  RecruiterRepo repo;
-  @Autowired
-  HttpSession session;
-  
-  @Autowired
-  JobOfferRepo jobrepo;
-  
-  String username=null;
-  @RequestMapping("/home")
-  public String home()
-  {
-    return "cmplgn.jsp";
-  }
-  
-  @RequestMapping("recramalogin")
-  public ModelAndView RecLogin(String username,String pass)
-  {
-    ModelAndView mv = new ModelAndView();
-    List<Recruiter> rc = repo.findAll();
-    for(int i=0;i<repo.count();i++)
-    {
-      Recruiter r = rc.get(i);
-      if((r.getUsername().equals(username))&&r.getPassword().equals(pass))
-      {
-        this.username=username;
-        session.setAttribute("loggedInUser_userName", username);
-          mv.setViewName("index1rama.jsp");
-          return mv;
-      }
-    }
-    mv.setViewName("cmplgn.jsp");
-    return mv;  
-  }
-  @RequestMapping("/logout")
+	@Autowired
+	RecruiterRepo repo;
+	@Autowired
+	HttpSession session;
+	
+	@Autowired
+	JobOfferRepo jobrepo;
+	
+	String username=null,id=null;
+	
+	@RequestMapping("/home")
+	public String home()
+	{
+		return "cmplgn.jsp";
+	}
+	
+	@RequestMapping("recramalogin")
+	public ModelAndView RecLogin(String username,String pass)
+	{
+		ModelAndView mv = new ModelAndView();
+		System.out.println(username+"");
+			List<Recruiter> rc = repo.findAll();
+			for(int i=0;i<repo.count();i++)
+			{
+				Recruiter r = rc.get(i);
+				if((r.getUsername().equals(username))&&r.getPassword().equals(pass))
+				{
+					
+					this.username=username;
+					id=session.getId();
+					session.setAttribute("loggedInUser_userName", username);
+						mv.setViewName("index1rama.jsp");
+						return mv;
+				}
+			}
+
+		mv.setViewName("cmplgn.jsp");
+		return mv;	
+	}
+	@RequestMapping("/logout")
     public String logout(HttpServletRequest request){
-    HttpSession session = request.getSession(false);
-    
-      if (session != null) {
-          session.invalidate();
-      }
+		HttpSession session = request.getSession(false);
+		
+	    if (session != null) {
+	        session.invalidate();
+	    }
         return "cmplgn.jsp";
     }
-  
-  @RequestMapping("addjob")
-  public ModelAndView addJob(JobOffers j)
-  {
-    Recruiter r=new Recruiter();
-    ModelAndView mv= new ModelAndView();
-    j.setPostedbyusername(username);
-    jobrepo.save(j);
-    mv.setViewName("index.jsp");
-    System.out.println(j.getJobid());
-    System.out.println(j.getPostedbyusername());
-    return mv;
-    
-    
-    
-  }
-  
+	
+	@RequestMapping("addjob")
+	public ModelAndView addJob(JobOffers j)
+	{
+		Recruiter r=new Recruiter();
+		ModelAndView mv= new ModelAndView();
+		j.setPostedbyusername(username);
+		jobrepo.save(j);
+		mv.setViewName("index1rama.jsp");
+		//System.out.println(j.getJobid());
+		//System.out.println(j.getPostedbyusername());
+		return mv;
+	}
+	@RequestMapping("viewjobs")
+	public ModelAndView ViewJobs()
+	{
+		ModelAndView mv = new ModelAndView();
+		List<JobOffers> jb = jobrepo.findAll();
+		mv.addObject("joboffers",jb);
+		mv.addObject("uname", username);
+		mv.setViewName("viewjobs.jsp");
+		return mv;
+	}
+	
 }

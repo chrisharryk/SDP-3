@@ -16,6 +16,8 @@
 
 <input type="button" value="Profile"  onclick="window.location='cmpprof.jsp'" />
 <input type="button" value="jobs" onclick="window.location='addjob.jsp'"/>
+
+<a href="viewjobs">view jobs</a>
 Username : 
 <h2 style="color:white"><span>${loggedInUser_userName}</span></h2>
 

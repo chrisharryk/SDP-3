@@ -72,6 +72,14 @@ public class Controller1
 		m.setViewName("stdlgn.jsp");
 		return m;
 	}
+	@RequestMapping("getJobOffers")
+	public ModelAndView getJobOffers()
+	{
+		ModelAndView m=new ModelAndView();
+		m.setViewName("viewJobOffers.jsp");
+		m.addObject("list", main.getJobOffList());
+		return m;
+	}
 //	@RequestMapping("viewallstudents")
 //	public ModelAndView viewallstudents()
 //	{
